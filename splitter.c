@@ -52,7 +52,7 @@ pid_t* sorterChildren = (pid_t*) mymalloc(    \
 for (int sorter=0; sorter < sorter_children_total; sorter++) {
 
 	/*Parent prepares parametres for later child execv call*/ 
-	char** args = execv_args_sorter("sorter1", sorter,DownstreamInfo[sorter].bytes_total,getppid());
+	char** args = execv_args_sorter("sorting1", sorter,DownstreamInfo[sorter].bytes_total,getppid());
     /*Spawn sorter child*/
     sorterChildren[sorter] = fork();
     /*About sorter child*/
@@ -71,7 +71,7 @@ for (int sorter=0; sorter < sorter_children_total; sorter++) {
         close(upstreamSorter[sorter][WRITE]);
 
         
-        execv("sorter1",args);
+        execv("sorting1",args);
 
     }
     else if (sorterChildren[sorter] < 0)

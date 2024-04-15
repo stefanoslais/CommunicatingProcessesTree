@@ -24,7 +24,7 @@ int main(int argc, char* argv[]){
 /*User input must be in format: ./mysort -i DataFile -k NumofChildren -e1 sorter1 */
 /* Check arguments*/
 if (argc != 7 )	exit_message("wrong number of arguments");
-if ( strcmp(argv[6],"sorter1") != 0 ) exit_message("First sorting algorithm must be 'sorter1'");
+if ( strcmp(argv[6],"sorting1") != 0 ) exit_message("First sorting algorithm must be 'sorting1'");
 char* DataFile_Name = argv[2];
 int splitters_total = atoi(argv[4]);
 pid_t* splitterChildren = (pid_t*) mymalloc(  \

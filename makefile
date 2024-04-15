@@ -7,16 +7,16 @@ OBJS_SPLITTER = $(SRCS_SPLITTER:.c=.o)
 SRCS_SORTER1 = records.c helping_functions.c shell_sort.c sorter1.c 
 OBJS_SORTER1 = $(SRCS_SORTER1:.c=.o)
 
-all:  sorter1 splitter mysort  
+all:  sorting1 splitter mysort  
 
 mysort: $(OBJS_MYSORT) splitter
 	gcc -g -o mysort $(OBJS_MYSORT)
 
-splitter: $(OBJS_SPLITTER) sorter1
+splitter: $(OBJS_SPLITTER) sorting1
 	gcc -g -o splitter $(OBJS_SPLITTER)
 
-sorter1: $(OBJS_SORTER1)
-	gcc -g -o sorter1  $(OBJS_SORTER1)
+sorting1: $(OBJS_SORTER1)
+	gcc -g -o sorting1  $(OBJS_SORTER1)
 
 records.o: records.c records.h
 	gcc -g -c records.c -o records.o
@@ -46,4 +46,4 @@ mysort.o: mysort.c records.h helping_functions.h pipeinfo.h merge.h
 	gcc -g -c mysort.c -o mysort.o
 
 clean:
-	rm -f $(OBJS_MYSORT) $(OBJS_SPLITTER) $(OBJS_SORTER1) mysort splitter sorter1
+	rm -f $(OBJS_MYSORT) $(OBJS_SPLITTER) $(OBJS_SORTER1) mysort splitter sorting1
